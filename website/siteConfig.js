@@ -17,7 +17,7 @@ const users = [
 
 const siteConfig = {
   title: 'neon-js' /* title for your website */,
-  tagline: 'JS SDK for NEO3 blockchain',
+  tagline: 'JS SDK for NEO3 blockchain Test',
   url: 'http://cityofzion.io' /* your website url */,
   baseUrl: '/neo3/neon-js/' /* base url for your project */,
   projectName: 'neon-js',
