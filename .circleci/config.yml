@@ -228,15 +228,16 @@ workflows:
               ignore: /.*/
             tags:
               only: /^v.*/
-      #- publish-docs:
-      #    context: aws
-      #    requires:
-      #      - setup
-      #    filters:
-      #      branches:
-      #        only: feature/docs
-      #      tags:
-      #        only: /v[0-9]+\.[0-9]+\.[0-9]+-next.*/
+      - publish-docs:
+          context: aws
+          requires:
+            - setup
+          filters:
+            branches:
+              only: feature/docs
+            tags:
+              only: /^v.*/
+              #only: /v[0-9]+\.[0-9]+\.[0-9]+-next.*/
       #- publish-next:
       #    requires:
       #      - setup
