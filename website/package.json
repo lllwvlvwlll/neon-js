@@ -3,10 +3,9 @@
     "start": "./node_modules/.bin/docusaurus-start",
     "build": "yarn build:guides && ./node_modules/.bin/docusaurus-build",
     "build:guides": "ljs2",
-    "publish": "aws s3 sync ./build/neon-js  s3://docs-coz/neo3/neon-js --acl public-read",
+    "publish": "./node_modules/.bin/docusaurus-publish",
     "write-translations": "./node_modules/.bin/docusaurus-write-translations",
     "version": "./node_modules/.bin/docusaurus-version",
-    "release": "yarn build && yarn run publish",
     "rename-version": "./node_modules/.bin/docusaurus-rename-version"
   },
   "dependencies": {

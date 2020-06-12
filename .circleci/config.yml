@@ -174,23 +174,6 @@ jobs:
           name: Publish to npm
           command: yarn release:next --yes
 
-  publish-docs:
-    executor: env-node10
-    steps:
-      - checkout
-      - run:
-          name: install aws cli
-          command: |
-            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-            unzip awscliv2.zip
-            sudo ./aws/install
-      - run:
-          name: Build and release docs
-          command: |
-            cd website
-            yarn install
-            yarn run release
-
 workflows:
   version: 2
   build_and_test:
@@ -228,15 +211,14 @@ workflows:
               ignore: /.*/
             tags:
               only: /^v.*/
-      - publish-docs:
-          context: aws
+      - publish-latest:
           requires:
             - setup
           filters:
             branches:
-              only: next
+              only: master
             tags:
-              only: /v[0-9]+\.[0-9]+\.[0-9]+-next.*/
+              only: /v[0-9]+\.[0-9]+\.[0-9]+$/
       - publish-next:
           requires:
             - setup
